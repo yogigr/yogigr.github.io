@@ -1,1 +1,0 @@
-# yogigr.github.io
