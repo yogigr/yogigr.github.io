@@ -1,4 +1,130 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Yogigr]]></title><description><![CDATA[A simple blog demonstrating what Yogi can do.]]></description><link>https://yogigr.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Fri, 24 Sep 2021 18:25:00 GMT</lastBuildDate><item><title><![CDATA[Instalasi Laravel di Ubuntu Server]]></title><description><![CDATA[Pengantar Laravel adalah framework php gratis / open source yang populer dan banyak digunakan oleh banyak developer dalam membangun aplikasi…]]></description><link>https://yogigr.github.io/instalasi-laravel-di-ubuntu-server/</link><guid isPermaLink="false">https://yogigr.github.io/instalasi-laravel-di-ubuntu-server/</guid><pubDate>Tue, 28 Aug 2018 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;Pengantar&lt;/h3&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Yogigr]]></title><description><![CDATA[A simple blog demonstrating what Yogi can do.]]></description><link>https://yogigr.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Sat, 25 Sep 2021 09:59:23 GMT</lastBuildDate><item><title><![CDATA[Mematikan Sementara Keyboard Internal Laptop di Ubuntu]]></title><description><![CDATA[Kenapa kita perlu mematikan keyboard? Ada beberapa alasan kenapa saya harus/perlu mematikan keyboard, diantaranya adalah: Ada salah satu…]]></description><link>https://yogigr.github.io/mematikan-sementara-keyboad-internal-laptop-di-ubuntu/</link><guid isPermaLink="false">https://yogigr.github.io/mematikan-sementara-keyboad-internal-laptop-di-ubuntu/</guid><pubDate>Sat, 25 Sep 2021 00:00:00 GMT</pubDate><content:encoded>&lt;h4&gt;Kenapa kita perlu mematikan keyboard?&lt;/h4&gt;
+&lt;p&gt;Ada beberapa alasan kenapa saya harus/perlu mematikan keyboard, diantaranya adalah:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Ada salah satu atau lebih tombol di keyboard yang error (menekan sendiri). Jika ini terjadi, pekerjaan kita akan terganggu. Salah satu contoh, tombol &lt;strong&gt;Backspace&lt;/strong&gt; yang menekan sendiri, jika kita sendang menulis dokumen, pasti tidak akan pernah selesai karena selalu terhapus huruf demi huruf.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Lebih nyaman pakai keyboard external, karena sudah banyak tombol keyboard internal yang mati.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Mungkin ada alasan lain selain yang saya utarakan diatas.&lt;/p&gt;
+&lt;h4&gt;Bagaimana cara mematikan / disable keyboard di Ubuntu?&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;Sebelum disable, ketahui dulu nomor &lt;strong&gt;id&lt;/strong&gt; dan nomor &lt;strong&gt;master&lt;/strong&gt; dengan menjalankan perintah:&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;xinput list&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/aa21eac845e929943cf9ab80e7fa6a0a/7e4a6/xinput-list.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 52.53164556962025%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAAAsTAAALEwEAmpwYAAACE0lEQVQozz2SaXOaUBSG6Uzapm1qG9tM1CzukU1WRVkEQdAIMS617TT//3+8nXNM+HAHuJz78C4IWy/AxvOQmx72sxCZPEF0N8aiPYVfM+BUZZgXfQR1E3HTgXs1xFoMkbQmWA9ChDcW5ndjjL6JvIRVN8TByFGIMTbyAoUUY6ulyKU5Vv0A/rUB9X0Ls7rJAAL+stdIOx6Oo5xhy54P/VMX+nkXQi5FODo5CnmOvblEocTYWyvQ/qxhIWxYPEzgQo55b6tn7OBgPZZA43OPl7AZLvA8TLEzlnyA7k9KNEjvblmdcnYP70rDk5pgVrd4Nu24ONgnYNbxWJ123oFAyv5ONyikeQmlgxs1YdVZ10fadpF1PSx7AVt/1lLOc2+uEN87yMWI8xt/lyCsxQjHccGA307Bdihwyo9sT3+ocKpKCfWvdZ6h51OWLh4HIcMmVYUUxqUqAiTNCcKGjeh2xJkMP7ahnDU5Q1I4/Tnk7LKejxd/x+VRnpQzWyZlZJVs0Fcos7eX5pc+L4JSGRQ+KabyCPKPgRE3XpaSi3Mugr5ayAkWrSkfpD2CUNjqhxaCmsFq6MqltN1X4JxtE4yECLkS4Y+bY2em2BoLbPWUs6ShoGbyOv02Op6UBOGNXbb8EpyA2atCBkaShERT4TVFhJIE/17BzlhxwG9B0zBZtysDWBcP3Kj19QHOpQy7ImJUEUvgf+4SXfbVqkXOAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;alt xinput list&quot;
+        title=&quot;alt xinput list&quot;
+        src=&quot;/static/aa21eac845e929943cf9ab80e7fa6a0a/f058b/xinput-list.png&quot;
+        srcset=&quot;/static/aa21eac845e929943cf9ab80e7fa6a0a/c26ae/xinput-list.png 158w,
+/static/aa21eac845e929943cf9ab80e7fa6a0a/6bdcf/xinput-list.png 315w,
+/static/aa21eac845e929943cf9ab80e7fa6a0a/f058b/xinput-list.png 630w,
+/static/aa21eac845e929943cf9ab80e7fa6a0a/40601/xinput-list.png 945w,
+/static/aa21eac845e929943cf9ab80e7fa6a0a/7e4a6/xinput-list.png 952w&quot;
+        sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;Dari output diatas kita mendapatkan informasi data nomor &lt;strong&gt;id&lt;/strong&gt; dan &lt;strong&gt;master&lt;/strong&gt; dari keyboard internal yang akan saya matikan, yaitu &lt;strong&gt;AT Translated Set 2 keyboard id=15	[slave  keyboard (3)]&lt;/strong&gt;, &lt;strong&gt;15&lt;/strong&gt; adalah nomor &lt;strong&gt;id&lt;/strong&gt; dan &lt;strong&gt;3&lt;/strong&gt; adalah nomor master. Informasi itu akan saya butuhkan ketika akan menyalakan kembali keyboard.&lt;/p&gt;
+&lt;ol start=&quot;2&quot;&gt;
+&lt;li&gt;Mematikan Keyboard. Jalankan perintah:&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;xinput float &lt;span class=&quot;token number&quot;&gt;15&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Untuk melihat perubahan, jalankan lagi perintah:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;xinput list&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/70b1320857024daffc66cd4025e2dbfb/ecf19/xinput-float.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 53.79746835443038%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAAAsTAAALEwEAmpwYAAACIElEQVQozz1Ta1PaUBTkk9ICrcqA2KoICAHyfhJIAiSQFyGAYtuZ/v//sZ1znPJh596b2Wx299xUilxEGo4RB2NE1hixL8DrysiFNXaTFdKhD7+jQf0ygPb1laHXhgyt9np5RiBOJeo7KKQV8mmAbBKgVEIsfxpYP9mYt2QY9RHk6x6Uah/ZKIB9KyIXlrwvpiGiroN4sIBzJzKnMruTcFRT/LJ3KMUIRyXGXgzxYRc4Klvee/cq5KseCwQ/TOTjJbKhj4OyxabnIhOWmDWlT8F5S8FRS1DKEU5agjc9ZREiuU2Ro5BL6eoFu8ka4fOMBXMhwFGN2R3VMiOH131U3JbCbkiIHFFveynir/sdHc7tlMn2zYQFV082c3bjFRu4CDYlqNUBKou2irO1Y9FS3uCPW3JH9PJJT1FKEfcUdWfsnBJR9OTVY3488JgbPOhwmxIqq0eb3RCZCL9ne2x7c2x6cx6M2RB4ehSHBdsqiuma8b+eQgx5KDxloyHgbOVsn3qxvo/5Stg3Uxj1IQvRmVZy5jRldkSxz2bOPVIK4vNQjMYIJz3Bm5HyYMKug0VLgf+gcwzqjsSITL15Hf1zyiOfHZIYgbpmQbM2wUFM8GEUKMUtDlLMbilG+OwwFm2Frw05i15cXinyu5HhIG/4fHGY2Coyx0Th2kh1C7GmIpks8Nd7h/lNAFVCKdRqH969xl3RvVw9WnwLCHp9ePlb/gECul0wfEXbRAAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;alt xinput float&quot;
+        title=&quot;alt xinput float&quot;
+        src=&quot;/static/70b1320857024daffc66cd4025e2dbfb/f058b/xinput-float.png&quot;
+        srcset=&quot;/static/70b1320857024daffc66cd4025e2dbfb/c26ae/xinput-float.png 158w,
+/static/70b1320857024daffc66cd4025e2dbfb/6bdcf/xinput-float.png 315w,
+/static/70b1320857024daffc66cd4025e2dbfb/f058b/xinput-float.png 630w,
+/static/70b1320857024daffc66cd4025e2dbfb/40601/xinput-float.png 945w,
+/static/70b1320857024daffc66cd4025e2dbfb/ecf19/xinput-float.png 948w&quot;
+        sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;Sudah terlihat perubahannya bukan? saya test keyboardnya dan berhasil di disable.&lt;/p&gt;
+&lt;h4&gt;Bagaimana cara menyalakan kembali Keyboard?&lt;/h4&gt;
+&lt;p&gt;Jalankan perintah:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;xinput reattach &lt;span class=&quot;token number&quot;&gt;15&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;3&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;strong&gt;15&lt;/strong&gt; adalah &lt;strong&gt;id&lt;/strong&gt;, sedangan &lt;strong&gt;3&lt;/strong&gt; adalah &lt;strong&gt;master&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Cek kembali perubahan&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;xinput list&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/3c96a1d54a066cbbd3fb7fbc410ba58c/d9199/reattach.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 54.43037974683544%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAAAsTAAALEwEAmpwYAAACF0lEQVQoz1WT2XLaQBBFeQlOHAMhFC4ciIvN2tGCJBBCSIAkxI4wzvL/P3JT3RR25WFqpmZ6Tt/bPVPYpTqyUEU6URA7KhJPweSHjo0YIe35iNseJnUdo6oCuyzB/PoC95sMuyzCKUsYPgiwSyKMLz2Y930UopaLvbrETp5jI0W8Xjy7WLY9+HUdw5IA7VObL22kEG5VRW4kWL0EOOkJ5j9dpL0p9M/dK3BcGyC3MpytFQ5ajJORMPTibHHQlpyE1A1LIu9PGxbvk3qKJSDB34H+o4HcXHEwzZR1K88RdzyY9z1oxTb0uw6sB4ETzpoODtqCVd0UZgS867LtglfX8cc74HW45gs7ZY6dusDJSBE2bQQNE5SUxk5ZIHga4qTHDDlb2btCUkf1LAQNCxdnw4dHPcFf/8jBZJUUr/pTRE2bm0PJSABZTbo+n9NMjkZVFePvKgqk4maZgGyj5TDAf9S5NoNim2tIwFFtgFdrha0c4c3dcjOvljtXy05Fxq/RDrmRcqFJOg3q6m1NgU5FYstuVeMur4UZ39uriyvw1hSnLLNCspybGQeS6rUYIutPuS6DYoeB1F3qMiWn89/jPTv7DziqyTjbK1zcDCcz4ZHTExrEiFo2Zk9DhhF4ry0RNh0ctSvkzdlcLQuzD2AgCogUFaGoIOjKCPoSomcbWyliiFfTuH5km34KPR/6IVQSt/LxY24/5R+xFFsm3rfk9QAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;alt reattach&quot;
+        title=&quot;alt reattach&quot;
+        src=&quot;/static/3c96a1d54a066cbbd3fb7fbc410ba58c/f058b/reattach.png&quot;
+        srcset=&quot;/static/3c96a1d54a066cbbd3fb7fbc410ba58c/c26ae/reattach.png 158w,
+/static/3c96a1d54a066cbbd3fb7fbc410ba58c/6bdcf/reattach.png 315w,
+/static/3c96a1d54a066cbbd3fb7fbc410ba58c/f058b/reattach.png 630w,
+/static/3c96a1d54a066cbbd3fb7fbc410ba58c/40601/reattach.png 945w,
+/static/3c96a1d54a066cbbd3fb7fbc410ba58c/d9199/reattach.png 960w&quot;
+        sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;Dari output diatas, status nya sudah berubah kembali. Saya test keyboardnya dan sudah berhasil enable lagi.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Instalasi Laravel di Ubuntu Server]]></title><description><![CDATA[Pengantar Laravel adalah framework php gratis / open source yang populer dan banyak digunakan oleh banyak developer dalam membangun aplikasi…]]></description><link>https://yogigr.github.io/instalasi-laravel-di-ubuntu-server/</link><guid isPermaLink="false">https://yogigr.github.io/instalasi-laravel-di-ubuntu-server/</guid><pubDate>Tue, 28 Aug 2018 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;Pengantar&lt;/h3&gt;
 &lt;p&gt;Laravel adalah framework php gratis / open source yang populer dan banyak digunakan oleh banyak developer dalam membangun aplikasi web. &lt;strong&gt;Laravel&lt;/strong&gt; dapat berjalan di sistem operasi Windows, macOs, maupun Linux selama sistem operasi tersebut sudah terinstal &lt;strong&gt;PHP&lt;/strong&gt;.&lt;/p&gt;
 &lt;h3&gt;Persiapan&lt;/h3&gt;
 &lt;p&gt;Sebelum instalasi &lt;strong&gt;Laravel&lt;/strong&gt;, kita siapkan terlebih dahulu Server &lt;strong&gt;Ubuntu 18.04 Server&lt;/strong&gt; yang sudah terinstal &lt;strong&gt;LAMP&lt;/strong&gt;. Jika belum, silahkan instal dulu &lt;strong&gt;LAMP&lt;/strong&gt; nya di &lt;a href=&quot;http://localhost:8000/instalasi-lamp-di-ubuntu-18-04/&quot;&gt;Cara Instalasi LAMP (Linux, Apache, Mysql, PHP) di Ubuntu 18.04&lt;/a&gt;&lt;/p&gt;
