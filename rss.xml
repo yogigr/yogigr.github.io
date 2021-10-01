@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Yogigr]]></title><description><![CDATA[A simple blog demonstrating what Yogi can do.]]></description><link>https://yogigr.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Fri, 01 Oct 2021 16:30:43 GMT</lastBuildDate><item><title><![CDATA[Akses Repository Github tanpa Login]]></title><description><![CDATA[Pengantar Login yang berulang ketika kita push / pull repository ke github cukup sangat mengganggu. Ada banyak jalan pintas untuk membuatnya…]]></description><link>https://yogigr.github.io/akses-repository-github-tanpa-login/</link><guid isPermaLink="false">https://yogigr.github.io/akses-repository-github-tanpa-login/</guid><pubDate>Fri, 01 Oct 2021 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;Pengantar&lt;/h3&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Yogigr]]></title><description><![CDATA[A simple blog demonstrating what Yogi can do.]]></description><link>https://yogigr.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Fri, 01 Oct 2021 16:39:08 GMT</lastBuildDate><item><title><![CDATA[Akses Repository Github tanpa Login]]></title><description><![CDATA[Pengantar Login yang berulang ketika kita push / pull repository ke github cukup sangat mengganggu. Ada banyak jalan pintas untuk membuatnya…]]></description><link>https://yogigr.github.io/akses-repository-github-tanpa-login/</link><guid isPermaLink="false">https://yogigr.github.io/akses-repository-github-tanpa-login/</guid><pubDate>Fri, 01 Oct 2021 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;Pengantar&lt;/h3&gt;
 &lt;p&gt;Login yang berulang ketika kita push / pull repository ke github cukup sangat mengganggu. Ada banyak jalan pintas untuk membuatnya &lt;strong&gt;Passwordless&lt;/strong&gt; (tanpa login), salah satunya dengan Token.&lt;/p&gt;
 &lt;h2&gt;Membuat token&lt;/h2&gt;
 &lt;ol&gt;
@@ -175,7 +175,40 @@ Sesuaikan juga nama directory dengan mengganti &lt;strong&gt;appdir&lt;/strong&g
 &lt;ol start=&quot;3&quot;&gt;
 &lt;li&gt;Dari local repo kita jalankan perintah:&lt;/li&gt;
 &lt;/ol&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;./deploy.sh&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content:encoded></item><item><title><![CDATA[Mematikan Sementara Keyboard Internal Laptop di Ubuntu]]></title><description><![CDATA[Kenapa kita perlu mematikan keyboard? Ada beberapa alasan kenapa saya harus/perlu mematikan keyboard, diantaranya adalah: Ada salah satu…]]></description><link>https://yogigr.github.io/mematikan-sementara-keyboad-internal-laptop-di-ubuntu/</link><guid isPermaLink="false">https://yogigr.github.io/mematikan-sementara-keyboad-internal-laptop-di-ubuntu/</guid><pubDate>Sat, 25 Sep 2021 00:00:00 GMT</pubDate><content:encoded>&lt;h4&gt;Kenapa kita perlu mematikan keyboard?&lt;/h4&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;./deploy.sh&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/e18db530cfc85c921e82b5fbcd28a278/f0811/result.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 59.49367088607595%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAMCAYAAABiDJ37AAAACXBIWXMAAAsTAAALEwEAmpwYAAABTklEQVQoz52TXU/CMBiF9y/QCCLse5RtZXxNwWkUlEwQMKDGC5UwlSXGKxMv/O/HtGRzJCDgxZPTZe3p6du3QjB7x+3DIy67Q1z4A06r01tJ2++jO7xD7+YeV4Mx/P4Ifn8M/3rEPYTGSRuiZiGvFpFTGAQZUUcmz9ASzL/3RQMKcaCZFcgG5WtF3Yo9BO+8A92sgFYb0IoORM2EbNh/wuYwJJ1hxSgFCsE764DQOpz6MTe1yoegtSZXie9sxhqNVxEbFmhtwcx03LWLk0RzWfqFhMlUyUTrzKP/SxMW7Gpcp20TqqT0a1iqNWFXjriqxPmX4dKErH6sdba5jIUanrZ8FB03vmWmLGl0dLbrJqiE8rYTyq6HrEz4MSXdRjo3b969AwWptIidzHpSXCXsZmUIn1/fmLyEeA0/wJ7h0/SN8zydYRKEmASzDQm5zw/u+H+WWq+7eAAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;Deploy result&quot;
+        title=&quot;Deploy result&quot;
+        src=&quot;/static/e18db530cfc85c921e82b5fbcd28a278/f058b/result.png&quot;
+        srcset=&quot;/static/e18db530cfc85c921e82b5fbcd28a278/c26ae/result.png 158w,
+/static/e18db530cfc85c921e82b5fbcd28a278/6bdcf/result.png 315w,
+/static/e18db530cfc85c921e82b5fbcd28a278/f058b/result.png 630w,
+/static/e18db530cfc85c921e82b5fbcd28a278/40601/result.png 945w,
+/static/e18db530cfc85c921e82b5fbcd28a278/78612/result.png 1260w,
+/static/e18db530cfc85c921e82b5fbcd28a278/f0811/result.png 1367w&quot;
+        sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Mematikan Sementara Keyboard Internal Laptop di Ubuntu]]></title><description><![CDATA[Kenapa kita perlu mematikan keyboard? Ada beberapa alasan kenapa saya harus/perlu mematikan keyboard, diantaranya adalah: Ada salah satu…]]></description><link>https://yogigr.github.io/mematikan-sementara-keyboad-internal-laptop-di-ubuntu/</link><guid isPermaLink="false">https://yogigr.github.io/mematikan-sementara-keyboad-internal-laptop-di-ubuntu/</guid><pubDate>Sat, 25 Sep 2021 00:00:00 GMT</pubDate><content:encoded>&lt;h4&gt;Kenapa kita perlu mematikan keyboard?&lt;/h4&gt;
 &lt;p&gt;Ada beberapa alasan kenapa saya harus/perlu mematikan keyboard, diantaranya adalah:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;
