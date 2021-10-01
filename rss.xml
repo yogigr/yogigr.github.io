@@ -1,4 +1,181 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Yogigr]]></title><description><![CDATA[A simple blog demonstrating what Yogi can do.]]></description><link>https://yogigr.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Sat, 25 Sep 2021 15:49:25 GMT</lastBuildDate><item><title><![CDATA[Mematikan Sementara Keyboard Internal Laptop di Ubuntu]]></title><description><![CDATA[Kenapa kita perlu mematikan keyboard? Ada beberapa alasan kenapa saya harus/perlu mematikan keyboard, diantaranya adalah: Ada salah satu…]]></description><link>https://yogigr.github.io/mematikan-sementara-keyboad-internal-laptop-di-ubuntu/</link><guid isPermaLink="false">https://yogigr.github.io/mematikan-sementara-keyboad-internal-laptop-di-ubuntu/</guid><pubDate>Sat, 25 Sep 2021 00:00:00 GMT</pubDate><content:encoded>&lt;h4&gt;Kenapa kita perlu mematikan keyboard?&lt;/h4&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Yogigr]]></title><description><![CDATA[A simple blog demonstrating what Yogi can do.]]></description><link>https://yogigr.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Fri, 01 Oct 2021 16:30:43 GMT</lastBuildDate><item><title><![CDATA[Akses Repository Github tanpa Login]]></title><description><![CDATA[Pengantar Login yang berulang ketika kita push / pull repository ke github cukup sangat mengganggu. Ada banyak jalan pintas untuk membuatnya…]]></description><link>https://yogigr.github.io/akses-repository-github-tanpa-login/</link><guid isPermaLink="false">https://yogigr.github.io/akses-repository-github-tanpa-login/</guid><pubDate>Fri, 01 Oct 2021 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;Pengantar&lt;/h3&gt;
+&lt;p&gt;Login yang berulang ketika kita push / pull repository ke github cukup sangat mengganggu. Ada banyak jalan pintas untuk membuatnya &lt;strong&gt;Passwordless&lt;/strong&gt; (tanpa login), salah satunya dengan Token.&lt;/p&gt;
+&lt;h2&gt;Membuat token&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;Login github, di sudut kanan atas klik &lt;strong&gt;photo profile&lt;/strong&gt; lalu klik &lt;strong&gt;Settings&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;Di sidebar kiri, klik &lt;strong&gt;Developer Settings&lt;/strong&gt; lalu klik &lt;strong&gt;Personal access tokens&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;Isi form mulai dari input &lt;strong&gt;Note&lt;/strong&gt;, &lt;strong&gt;Expiration&lt;/strong&gt;, dan &lt;strong&gt;Select scopes&lt;/strong&gt;. Kemudian tekan tombol &lt;strong&gt;generate token&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;Copy &lt;strong&gt;token&lt;/strong&gt; dan paste di Text Editor kesayangan lalu simpan&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2&gt;Sisipkan token&lt;/h2&gt;
+&lt;p&gt;Ketika &lt;strong&gt;clone&lt;/strong&gt; repository dari Github, sisipkan token, menjadi seperti:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token function&quot;&gt;git&lt;/span&gt; clone https://c904a061a164cb45a9abf5dbc6c8b8f4c16d6xxx@github.com/user/test.git&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Atau jika terlanjur &lt;strong&gt;clone&lt;/strong&gt; edit &lt;strong&gt;git config&lt;/strong&gt; di directory local&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token function&quot;&gt;nano&lt;/span&gt; .git/config&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;[core]
+repositoryformatversion = 0
+filemode = true
+bare = false
+logallrefupdates = true
+[remote &quot;origin&quot;]
+url = https://github.com/user/test.git
+fetch = +refs/heads/*:refs/remotes/origin/*&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Ubah menjadi&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;[core]
+repositoryformatversion = 0
+filemode = true
+bare = false
+logallrefupdates = true
+[remote &quot;origin&quot;]
+url = https://c904a061a164cb45a9abf5dbc6c8b8f4c16d6xxx@github.com/user/test.git
+fetch = +refs/heads/*:refs/remotes/origin/*&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Tekan &lt;strong&gt;ctrl + x&lt;/strong&gt; dan &lt;strong&gt;Enter&lt;/strong&gt; untuk menyimpan &lt;strong&gt;config&lt;/strong&gt;, Selesai.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Deploy Laravel dengan Github Actions]]></title><description><![CDATA[Pengantar Github Actions adalah layanan gratis dari github yang bisa berjalan di repository yang terkonfigurasi. Dalam tutorial ini saya…]]></description><link>https://yogigr.github.io/deploy-laravel-dengan-github-actions/</link><guid isPermaLink="false">https://yogigr.github.io/deploy-laravel-dengan-github-actions/</guid><pubDate>Fri, 01 Oct 2021 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;Pengantar&lt;/h3&gt;
+&lt;p&gt;Github Actions adalah layanan gratis dari github yang bisa berjalan di repository yang terkonfigurasi. Dalam tutorial ini saya manfaatkan layanan ini untuk deploy Laravel secara otomatis.&lt;/p&gt;
+&lt;h3&gt;Persiapan&lt;/h3&gt;
+&lt;p&gt;Sebelum melakukuan konfigurasi, ada hal yang perlu saya siapkan, diantaranya:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Server/Vps yang sudah terkonfigurasi web server, mysql dan php. &lt;a href=&quot;/instalasi-lamp-di-ubuntu-18-04/&quot;&gt;Cara Instalasi LAMP (Linux, Apache, Mysql, PHP) di Ubuntu 18.04&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Repository Github&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3&gt;Setup git&lt;/h3&gt;
+&lt;p&gt;Terdapat 3 branch diantaranya:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;main&lt;/strong&gt;, branch untuk development&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;production&lt;/strong&gt;, branch yang kita push ke github&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;deploy&lt;/strong&gt;, branch yang terbuat otomatis ketika workflow dari github actions berjalan&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Sehingga flow nya seperti: &lt;strong&gt;main&lt;/strong&gt; -&gt; &lt;strong&gt;production&lt;/strong&gt; -&gt; &lt;strong&gt;deploy&lt;/strong&gt;&lt;/p&gt;
+&lt;h3&gt;Server Deployment Script&lt;/h3&gt;
+&lt;p&gt;Buat file bash script, saya beri nama &lt;strong&gt;server_deploy.sh&lt;/strong&gt;. Script ini akan berjalan di server.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;#/!bin/sh&lt;/span&gt;
+
+&lt;span class=&quot;token builtin class-name&quot;&gt;set&lt;/span&gt; -e
+
+&lt;span class=&quot;token builtin class-name&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;Deploying application ...&quot;&lt;/span&gt;
+
+&lt;span class=&quot;token comment&quot;&gt;#Enter maintenance mode&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;php artisan down &lt;span class=&quot;token string&quot;&gt;&apos;Web sedang dalam pemeliharaan. Silahkan kembali beberapa saat lagi&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;||&lt;/span&gt; &lt;span class=&quot;token boolean&quot;&gt;true&lt;/span&gt;
+  &lt;span class=&quot;token comment&quot;&gt;#update codebase&lt;/span&gt;
+  &lt;span class=&quot;token function&quot;&gt;git&lt;/span&gt; fetch origin deploy
+  &lt;span class=&quot;token function&quot;&gt;git&lt;/span&gt; reset --hard origin/deploy
+
+  &lt;span class=&quot;token comment&quot;&gt;# Install dependencies based on lock file&lt;/span&gt;
+  &lt;span class=&quot;token function&quot;&gt;composer&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;install&lt;/span&gt; --optimize-autoloader --no-dev
+
+  &lt;span class=&quot;token comment&quot;&gt;# Migrate database&lt;/span&gt;
+  php artisan migrate --force
+
+  &lt;span class=&quot;token comment&quot;&gt;# Note: If you&apos;re using queue workers, this is the place to restart them.&lt;/span&gt;
+  &lt;span class=&quot;token comment&quot;&gt;# ...&lt;/span&gt;
+
+  &lt;span class=&quot;token comment&quot;&gt;# Clear cache&lt;/span&gt;
+  php artisan optimize
+
+  &lt;span class=&quot;token comment&quot;&gt;# Reload PHP to update opcache&lt;/span&gt;
+  &lt;span class=&quot;token builtin class-name&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;&quot;&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;sudo&lt;/span&gt; -S &lt;span class=&quot;token function&quot;&gt;service&lt;/span&gt; php7.4-fpm reload
+
+&lt;span class=&quot;token comment&quot;&gt;# Exit maintenance mode&lt;/span&gt;
+php artisan up
+
+&lt;span class=&quot;token builtin class-name&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;Application deployed!&quot;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3&gt;Local Deployment Script&lt;/h3&gt;
+&lt;p&gt;Buat file bash lagi, saya kasih nama &lt;strong&gt;deploy.sh&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;#/!bin/sh&lt;/span&gt;
+
+&lt;span class=&quot;token builtin class-name&quot;&gt;set&lt;/span&gt; -e
+
+vendor/bin/phpunit
+
+&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;git push&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;||&lt;/span&gt; &lt;span class=&quot;token boolean&quot;&gt;true&lt;/span&gt;
+
+&lt;span class=&quot;token function&quot;&gt;git&lt;/span&gt; checkout production
+&lt;span class=&quot;token function&quot;&gt;git&lt;/span&gt; merge main
+
+&lt;span class=&quot;token function&quot;&gt;git&lt;/span&gt; push origin production
+
+&lt;span class=&quot;token function&quot;&gt;git&lt;/span&gt; checkout main&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3&gt;Github Actions&lt;/h3&gt;
+&lt;p&gt;Create file &lt;strong&gt;.github/workflows/main.yml&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;name: CD
+ 
+on:
+  push:
+    branches: &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt; production &lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;
+ 
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        token: &lt;span class=&quot;token variable&quot;&gt;${{ secrets.PUSH_TOKEN }&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+    - name: Set up Node
+      uses: actions/setup-node@v1
+      with:
+        node-version: &lt;span class=&quot;token string&quot;&gt;&apos;12.x&apos;&lt;/span&gt;
+    - run: &lt;span class=&quot;token function&quot;&gt;npm&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;install&lt;/span&gt;
+    - run: &lt;span class=&quot;token function&quot;&gt;npm&lt;/span&gt; run production
+    - name: Commit built assets
+      run: &lt;span class=&quot;token operator&quot;&gt;|&lt;/span&gt;
+        &lt;span class=&quot;token function&quot;&gt;git&lt;/span&gt; config --local user.email &lt;span class=&quot;token string&quot;&gt;&quot;myemail@email.com&quot;&lt;/span&gt;
+        &lt;span class=&quot;token function&quot;&gt;git&lt;/span&gt; config --local user.name &lt;span class=&quot;token string&quot;&gt;&quot;My Name&quot;&lt;/span&gt;
+        &lt;span class=&quot;token function&quot;&gt;git&lt;/span&gt; checkout -B deploy
+        &lt;span class=&quot;token function&quot;&gt;git&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;add&lt;/span&gt; -f public/
+        &lt;span class=&quot;token function&quot;&gt;git&lt;/span&gt; commit --allow-empty -m &lt;span class=&quot;token string&quot;&gt;&quot;Build front-end assets&quot;&lt;/span&gt;
+        &lt;span class=&quot;token function&quot;&gt;git&lt;/span&gt; push -f origin deploy
+    - name: Deploy to production
+      uses: appleboy/ssh-action@master
+      with:
+        username: &lt;span class=&quot;token variable&quot;&gt;${{ secrets.SSH_USER }&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+        host: &lt;span class=&quot;token variable&quot;&gt;${{ secrets.SSH_HOST }&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+        password: &lt;span class=&quot;token variable&quot;&gt;${{ secrets.SSH_PASSWORD }&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+        script: &lt;span class=&quot;token string&quot;&gt;&apos;cd /var/www/html/appdir &amp;amp;&amp;amp; ./server_deploy.sh&apos;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;strong&gt;PUSH_TOKEN&lt;/strong&gt;, &lt;strong&gt;SSH_USER&lt;/strong&gt;, &lt;strong&gt;SSH_HOST&lt;/strong&gt;, dan &lt;strong&gt;SSH_PASSWORD&lt;/strong&gt;, saya isi masing-masing variable di Tab Settings -&gt; Secrets.
+&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/d470bfa80a14d91cc4092ced8149a716/aa878/secrets.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 51.89873417721519%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAAAsTAAALEwEAmpwYAAABKElEQVQoz5WR227EIAxE8/8f2m02NyDgCyGZyk5a5WW7rSULZNDxeNzFGDFNM0IImJcF/4kDQIgrQkxYQoRoRZfSinleHLYsAcwCVQUxoxD5XUSQcwEzQ0X8JGL/Y7B5CTBOazu6j8cDwzAihOgqh3H0Bs9hQN8/vTaOEz77HpM1jgUhFZRSQEQXnFBrddWddfduxP54T6v5O5+njUT1QG0vLDgOdNrsE2OVjG1vb32rqq7utKMiphVUCByvkWVTkDK4ind4l1qrK2YR1LphLQRhgeRyAvUCFiXs+/4rzMKBdAG3E8h34LfCSAlZyo8XL4GqyL4Q9kWkNYPN65TRdgNWddBqsANvFYoB87lhUxsNePfQxmx78/yLh601bFcawMa2Wts23/IXA5cO11QOVUwAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;Secrets Variable&quot;
+        title=&quot;Secrets Variable&quot;
+        src=&quot;/static/d470bfa80a14d91cc4092ced8149a716/f058b/secrets.png&quot;
+        srcset=&quot;/static/d470bfa80a14d91cc4092ced8149a716/c26ae/secrets.png 158w,
+/static/d470bfa80a14d91cc4092ced8149a716/6bdcf/secrets.png 315w,
+/static/d470bfa80a14d91cc4092ced8149a716/f058b/secrets.png 630w,
+/static/d470bfa80a14d91cc4092ced8149a716/40601/secrets.png 945w,
+/static/d470bfa80a14d91cc4092ced8149a716/78612/secrets.png 1260w,
+/static/d470bfa80a14d91cc4092ced8149a716/aa878/secrets.png 1385w&quot;
+        sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+Sesuaikan juga nama directory dengan mengganti &lt;strong&gt;appdir&lt;/strong&gt;.&lt;/p&gt;
+&lt;h3&gt;Penggunaan&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;Push branch &lt;strong&gt;main&lt;/strong&gt; dan &lt;strong&gt;production&lt;/strong&gt; ke github&lt;/li&gt;
+&lt;li&gt;Login server dan clone repo dari github. Saya clone menggunakan metode menyisipkan token, supaya setiap deploy tidak selalu meminta login github. &lt;a href=&quot;/akses-repository-github-tanpa-login/&quot;&gt;Akses Repository Github tanpa Login&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token builtin class-name&quot;&gt;cd&lt;/span&gt; /var/www/html &lt;span class=&quot;token operator&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;git&lt;/span&gt; clone https://c904a061a164cb45a9abf5dbc6c8b8f4c16d6xxx@github.com/user/test.git myapp&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token builtin class-name&quot;&gt;cd&lt;/span&gt; myapp &lt;span class=&quot;token operator&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;git&lt;/span&gt; checkout production &lt;span class=&quot;token operator&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;git&lt;/span&gt; checkout -b deploy&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;ol start=&quot;3&quot;&gt;
+&lt;li&gt;Dari local repo kita jalankan perintah:&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;./deploy.sh&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content:encoded></item><item><title><![CDATA[Mematikan Sementara Keyboard Internal Laptop di Ubuntu]]></title><description><![CDATA[Kenapa kita perlu mematikan keyboard? Ada beberapa alasan kenapa saya harus/perlu mematikan keyboard, diantaranya adalah: Ada salah satu…]]></description><link>https://yogigr.github.io/mematikan-sementara-keyboad-internal-laptop-di-ubuntu/</link><guid isPermaLink="false">https://yogigr.github.io/mematikan-sementara-keyboad-internal-laptop-di-ubuntu/</guid><pubDate>Sat, 25 Sep 2021 00:00:00 GMT</pubDate><content:encoded>&lt;h4&gt;Kenapa kita perlu mematikan keyboard?&lt;/h4&gt;
 &lt;p&gt;Ada beberapa alasan kenapa saya harus/perlu mematikan keyboard, diantaranya adalah:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;
