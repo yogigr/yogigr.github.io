@@ -1,4 +1,527 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Yogigr]]></title><description><![CDATA[A simple blog demonstrating what Yogi can do.]]></description><link>https://yogigr.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Fri, 01 Oct 2021 16:39:08 GMT</lastBuildDate><item><title><![CDATA[Akses Repository Github tanpa Login]]></title><description><![CDATA[Pengantar Login yang berulang ketika kita push / pull repository ke github cukup sangat mengganggu. Ada banyak jalan pintas untuk membuatnya…]]></description><link>https://yogigr.github.io/akses-repository-github-tanpa-login/</link><guid isPermaLink="false">https://yogigr.github.io/akses-repository-github-tanpa-login/</guid><pubDate>Fri, 01 Oct 2021 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;Pengantar&lt;/h3&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Yogigr]]></title><description><![CDATA[A simple blog demonstrating what Yogi can do.]]></description><link>https://yogigr.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Mon, 04 Oct 2021 15:27:11 GMT</lastBuildDate><item><title><![CDATA[Laravel Broadcasting dengan Redis dan Socket.IO]]></title><description><![CDATA[Pengantar Laravel Broadcasting memungkinkan kita untuk sharing event yang sama (berikut datanya) antara server-side laravel dan client-side…]]></description><link>https://yogigr.github.io/laravel-broadcasting-dengan-redis-dan-socketio/</link><guid isPermaLink="false">https://yogigr.github.io/laravel-broadcasting-dengan-redis-dan-socketio/</guid><pubDate>Mon, 04 Oct 2021 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;Pengantar&lt;/h3&gt;
+&lt;p&gt;Laravel Broadcasting memungkinkan kita untuk sharing event yang sama (berikut datanya) antara server-side laravel dan client-side javascript. Salah satu contoh, Dengan Broadcasting, user dapat menerima notifikasi dari aplikasi tanpa harus me-refresh browser.&lt;/p&gt;
+&lt;p&gt;Pada kesempatan ini saya akan mencoba meng-aplikasikan Laravel Broadcasting dengan Redis dan Socket.IO.&lt;/p&gt;
+&lt;h3&gt;Arsitektur&lt;/h3&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/afa7065bd7ddd61a16df4d4c19465a4e/29007/arsitektur-laravel-broadcasting.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 75.31645569620254%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAPCAYAAADkmO9VAAAACXBIWXMAAAsTAAALEwEAmpwYAAAEO0lEQVQ4y12PyW8bBRjFv5K2FE0SaIXEP0GDhEBCcKEHJEAICbj1zqkoByRE1bQ0jSmoJS1CJQSlqCQGlzZNYjuNE4cm3rJ4vI09Mx4vsWfG9mzexktar439oVSCA0960vsuv+89MFq2QajiYB9xqIM49BRxCBGHyj0cDqXrzy+Zl8FqWQTMO449FTeG2vzfBDbCBGKVQFQJlN1EV9wYPMhsEI3obwCpMg5Gc02RSlVrYb5WptJVPbin59nME4yrB1/dmb75xszc/PvdzNbXfYVso+LPdTI7aj3pVB+nXGpPJtW+4iv2ZTLVStwdBr2PwxGhjpu+FDoDPLopEdd3YuiLFXCv0L/+15+zk6b7iystcftnVIOIeQrrSTcmt5cwG7DhgeRHVEPYVwLYTt4/Bb6EfjyhHYyJFfxW0PGKoONEtoaX0yW8wcndM4zcAyx5oJfbOtOTvDd6knccNb8B9YgBS5ShL5MTPcl7tSd5LzbjphMQTOVBaSJEkln46Yfv3jbO3pkptBDEShd4vQtVxCOICA2Rg2YuCR05DQeaAFiRAXUZugoPrdweNLMJqEQ3AMIyB+Esd0rHFuHcdb9lf7T+hYL6EC3HX6bl+AuHMI0pAE8Jr2SY3OsVsXZaF6ojZb4yogu1kVpmf0SJa68JYfHV+E5iACgpMMiqtMhqTD0g+BUfTwq0HM5HNRZpJXI+WmcgFyqCyKoXBEZGlkzWOH+qwfn2Gow3cegnqUi2neW0fMSVeBEoKTgc1Rjk8lF0Rhxo21nBkBjEWIFDRqVvxuocSFQJMlH1usgquPsogB67F0kHhSEPg67VncMnKMULGNxgTx42PM6okQusShuSeuJKur53Za+eGI0W2KthKfQeV2dA8GnAR6R3RVaZzKcqlwvp2rgUK1yTEyVDka+NS/GiQaDlMW6bPwGsRkO8EIdkKQmZ/Qzku3kw3jGePffZuZc2tzbBQ3qOrq/uPJdMVCEjNqGqI8jSYzCZjLemfvnxTTrCw34NIZ3aB46uAbDqM+BRTuGOpcrpoyxGj5jN5ttWq7W1uLR4dt1uh+9/vQ3oc0Hf5wGMUdChg/C76e6EYXrmtLztAoyFoLvrgObqAsDEw8+f2WmkYe6PWfjog4/BZrPBwsLCJxaLpWIxm+9/OnaJ6PjJd5oB3zVk6YsYZS71aOobZCKXDvNBhBpv+MnzFfvqCfhX9+7dA5PJBNPT02C32wcsFgvMzc2dNC8t+W/Nzn2IdHisTnqRs5ox8dCK/JoNkyvLGFu2oOrcxE44hLLVfOo/4OjoKMzPz8PU1NSz22q1Djx48AAm3VuAURpafvLLhp/sFNzOXNHtUstbbq205dYKbqdS290utoL+VN62PAz/l9FohLW1NVhZWTmcfaSSy4JnaRFKjo3jTwO+QWw3CWw+JrBcJLBeIbDdIDDDD1ZcDqLteAT/AGWFO2O6ni69AAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;Arsitektur Laravel Broadcasting dengan Redis dan Socket.IO&quot;
+        title=&quot;Arsitektur Laravel Broadcasting dengan Redis dan Socket.IO&quot;
+        src=&quot;/static/afa7065bd7ddd61a16df4d4c19465a4e/f058b/arsitektur-laravel-broadcasting.png&quot;
+        srcset=&quot;/static/afa7065bd7ddd61a16df4d4c19465a4e/c26ae/arsitektur-laravel-broadcasting.png 158w,
+/static/afa7065bd7ddd61a16df4d4c19465a4e/6bdcf/arsitektur-laravel-broadcasting.png 315w,
+/static/afa7065bd7ddd61a16df4d4c19465a4e/f058b/arsitektur-laravel-broadcasting.png 630w,
+/static/afa7065bd7ddd61a16df4d4c19465a4e/40601/arsitektur-laravel-broadcasting.png 945w,
+/static/afa7065bd7ddd61a16df4d4c19465a4e/78612/arsitektur-laravel-broadcasting.png 1260w,
+/static/afa7065bd7ddd61a16df4d4c19465a4e/29007/arsitektur-laravel-broadcasting.png 1600w&quot;
+        sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;h3&gt;Step 1 Laravel&lt;/h3&gt;
+&lt;p&gt;Install fresh Laravel&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token function&quot;&gt;composer&lt;/span&gt; create project --prefer-dist laravel/laravel laravelbroadcasting&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Masuk directory project dan buat Event&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token builtin class-name&quot;&gt;cd&lt;/span&gt; laravelbroadcasting &lt;span class=&quot;token operator&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; php artisan make:event TestEvent&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Supaya Event bisa broadcastable, tambahkan interface &lt;strong&gt;ShouldBroadcast&lt;/strong&gt; dan edit fungsi &lt;strong&gt;broadcastOn&lt;/strong&gt; menjadi &lt;code class=&quot;language-text&quot;&gt;return new Channel(&apos;test&apos;);&lt;/code&gt;&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;php&quot;&gt;&lt;pre class=&quot;language-php&quot;&gt;&lt;code class=&quot;language-php&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;// app/Events/TestEvent.php&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name-definition class-name&quot;&gt;TestEvent&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;implements&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;ShouldBroadcast&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;use&lt;/span&gt; &lt;span class=&quot;token package&quot;&gt;Dispatchable&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; InteractsWithSockets&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; SerializesModels&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+    &lt;span class=&quot;token comment&quot;&gt;/**
+     * Create a new event instance.
+     *
+     * @return void
+     */&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token function-definition function&quot;&gt;__construct&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;token comment&quot;&gt;//&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;token comment&quot;&gt;/**
+     * Get the channels the event should broadcast on.
+     *
+     * @return \Illuminate\Broadcasting\Channel|array
+     */&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token function-definition function&quot;&gt;broadcastOn&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Channel&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string single-quoted-string&quot;&gt;&apos;test&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Tambahkan route untuk dispatch event&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;php&quot;&gt;&lt;pre class=&quot;language-php&quot;&gt;&lt;code class=&quot;language-php&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;// routes/web.php&lt;/span&gt;
+&lt;span class=&quot;token class-name static-context&quot;&gt;Route&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string single-quoted-string&quot;&gt;&apos;test-event&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token class-name static-context&quot;&gt;TestEvent&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;dispatch&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token string double-quoted-string&quot;&gt;&quot;OK&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Test route &lt;code class=&quot;language-text&quot;&gt;test-event&lt;/code&gt; di browser&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;http://127.0.0.1:8000/test-event&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 618px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/de7f53d1d02f353daccaaaf422358313/6e6fb/test-event-route.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 24.68354430379747%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAFCAYAAABFA8wzAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAlklEQVQY06WOWw6DIAAEuf8V6zs+aquggCj1MY009gJuspm/2RVuntm2De89zjm0sVT1k6Z9UT9bul5SlBWPKCZKUqI4CUzSnDQvqOqGsm5o3x3aTohlWYJwXU/ph3NgGDXamEBjJ9Qw0EuJVD/2UoUhqRRaG0ZtsHZi8R6RZRlSKs4cx8HdiPPdvu9/4d2Ky3y9uyv8Al97hZcdbZCcAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;test-event Route&quot;
+        title=&quot;test-event Route&quot;
+        src=&quot;/static/de7f53d1d02f353daccaaaf422358313/6e6fb/test-event-route.png&quot;
+        srcset=&quot;/static/de7f53d1d02f353daccaaaf422358313/c26ae/test-event-route.png 158w,
+/static/de7f53d1d02f353daccaaaf422358313/6bdcf/test-event-route.png 315w,
+/static/de7f53d1d02f353daccaaaf422358313/6e6fb/test-event-route.png 618w&quot;
+        sizes=&quot;(max-width: 618px) 100vw, 618px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;Check log di file storage/logs/laravel.log&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;log&quot;&gt;&lt;pre class=&quot;language-log&quot;&gt;&lt;code class=&quot;language-log&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token date number&quot;&gt;2021-10-04&lt;/span&gt; &lt;span class=&quot;token time number&quot;&gt;11:46:53&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt; local&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token level info keyword&quot;&gt;INFO&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; Broadcasting &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;App\Events\TestEvent&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt; on channels &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;test&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;token property&quot;&gt;with payload:&lt;/span&gt;
+&lt;span class=&quot;token operator&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token string&quot;&gt;&quot;socket&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token boolean&quot;&gt;null&lt;/span&gt;
+&lt;span class=&quot;token operator&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Event masih broadcast ke &lt;strong&gt;log&lt;/strong&gt; karena &lt;code class=&quot;language-text&quot;&gt;BROADCAST_DRIVER=log&lt;/code&gt; di &lt;code class=&quot;language-text&quot;&gt;.env&lt;/code&gt;.&lt;/p&gt;
+&lt;h3&gt;Step 2 Queue&lt;/h3&gt;
+&lt;p&gt;Install redis-server jika belum terinstall, dengan:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token function&quot;&gt;sudo&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;apt&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;install&lt;/span&gt; redis-server&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;update &lt;code class=&quot;language-text&quot;&gt;QUEUE_CONNECTION=sync&lt;/code&gt; menjadi &lt;code class=&quot;language-text&quot;&gt;QUEUE_CONNECTION=redis&lt;/code&gt; di file &lt;strong&gt;.env&lt;/strong&gt; dan jalankan perintah:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;php artisan queue:work&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/c2471bcf8535cdd06d178e02547d68a2/84f4d/php-artisan-queue-work.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 8.860759493670885%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAACCAYAAABYBvyLAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAhElEQVQI1yWL0QqCMABF/YUgEmtqJlnISsxtTogiNRtU//85J5oPh3PPww0mlTNWOcOxZCgtT6mYTppRtkxn4/e7vPCVFa6ocYeaj2xwhaZPLf225S4UfdrySAxBs8j4o1cpJhKYKPbWoZh7HaPCBLOJaZbJTCj8xxU3XvsrQ2a9x13HD7mkPa/lhaFnAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;php artisan queue:work&quot;
+        title=&quot;php artisan queue:work&quot;
+        src=&quot;/static/c2471bcf8535cdd06d178e02547d68a2/f058b/php-artisan-queue-work.png&quot;
+        srcset=&quot;/static/c2471bcf8535cdd06d178e02547d68a2/c26ae/php-artisan-queue-work.png 158w,
+/static/c2471bcf8535cdd06d178e02547d68a2/6bdcf/php-artisan-queue-work.png 315w,
+/static/c2471bcf8535cdd06d178e02547d68a2/f058b/php-artisan-queue-work.png 630w,
+/static/c2471bcf8535cdd06d178e02547d68a2/40601/php-artisan-queue-work.png 945w,
+/static/c2471bcf8535cdd06d178e02547d68a2/84f4d/php-artisan-queue-work.png 1208w&quot;
+        sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;Broadcast event sudah melewati &lt;strong&gt;queue&lt;/strong&gt;.&lt;/p&gt;
+&lt;h3&gt;Step 3 Redis&lt;/h3&gt;
+&lt;p&gt;update &lt;code class=&quot;language-text&quot;&gt;BROADCAST_DRIVER=log&lt;/code&gt; menjadi &lt;code class=&quot;language-text&quot;&gt;BROADCAST_DRIVER=redis&lt;/code&gt; di file &lt;strong&gt;.env&lt;/strong&gt; Lalu monitor event dengan:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;redis-cli MONITOR&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/d33b8d7f0952b0fc37dac73367036eb8/14747/redis-cli-monitor.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 9.49367088607595%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAACCAYAAABYBvyLAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAiElEQVQI1z3HuQ6CQAAAUUqjaGVhRDGuHBIDkTOALAtBFI/C//+ZMaGgmLyM1vsxnZsizZJGVLSWQh0K5CZEbiPytU+0dIhXZ0Ld4Tq3CBf21PS6TTATaL/gyffS0YuCj6cY7IqXK+lPJd0x52HdGNyat9dwFwXNPqU9ZKNql6CMhNqIac1s9A8mfj3M9WKlQgAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;redis-cli monitor&quot;
+        title=&quot;redis-cli monitor&quot;
+        src=&quot;/static/d33b8d7f0952b0fc37dac73367036eb8/f058b/redis-cli-monitor.png&quot;
+        srcset=&quot;/static/d33b8d7f0952b0fc37dac73367036eb8/c26ae/redis-cli-monitor.png 158w,
+/static/d33b8d7f0952b0fc37dac73367036eb8/6bdcf/redis-cli-monitor.png 315w,
+/static/d33b8d7f0952b0fc37dac73367036eb8/f058b/redis-cli-monitor.png 630w,
+/static/d33b8d7f0952b0fc37dac73367036eb8/40601/redis-cli-monitor.png 945w,
+/static/d33b8d7f0952b0fc37dac73367036eb8/78612/redis-cli-monitor.png 1260w,
+/static/d33b8d7f0952b0fc37dac73367036eb8/14747/redis-cli-monitor.png 1914w&quot;
+        sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;Untuk sementara, broadcast event sudah melewati &lt;strong&gt;redis&lt;/strong&gt;.&lt;/p&gt;
+&lt;h3&gt;Step 4 Socket.IO Server&lt;/h3&gt;
+&lt;p&gt;Install &lt;code class=&quot;language-text&quot;&gt;laravel-echo-server&lt;/code&gt; dengan menjalankan perintah:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token function&quot;&gt;sudo&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;npm&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;install&lt;/span&gt; -g laravel-echo-server&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Membuat file konfigurasi &lt;code class=&quot;language-text&quot;&gt;laravel-echo-server.json&lt;/code&gt; dengan perintah&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;laravel-echo-server init&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/27c7dcced968ad2ef33b8d6a37d034d5/33d1d/laravel-echo-server-init.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 25.949367088607595%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAFCAYAAABFA8wzAAAACXBIWXMAAAsTAAALEwEAmpwYAAABLklEQVQY01WPW0+CcABHfUwfNOuh1nVLl+LlD4gC4SVFRUAwwHktc63v/xlOw7W1Hs5+b7+dk/FUk/VoyrJnE2p9onZA1AlZaHN82WVpRiRWjCsmBLUhxp2GcVHHLNboFKooZ09/ZEtkopbDl73nc7BibyUcXhO2ZsDGCNiYAR/9mKU+x1MdFs0J45KFXRkweu7jNMcYjwbStYI4lxD5Chm/OWDXfWNrLYhVh6O9JtE8VnrA+2DJcbzBro/wpCGxmNC979AoVJFT0pOiRLNY+zsMhc0htesmxKrLt7M7GaZmO+vttKltqDiEHR+99ELjXELOVxBpcrb0P9lvWST9IaHRYyZ03MYEX/Zw61Nm1Slefca84RIpHu1LgXGlYN5qdB90jBsVkSuj5MrIv/wAKOCl7m0QgDUAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;laravel-echo-server init&quot;
+        title=&quot;laravel-echo-server init&quot;
+        src=&quot;/static/27c7dcced968ad2ef33b8d6a37d034d5/f058b/laravel-echo-server-init.png&quot;
+        srcset=&quot;/static/27c7dcced968ad2ef33b8d6a37d034d5/c26ae/laravel-echo-server-init.png 158w,
+/static/27c7dcced968ad2ef33b8d6a37d034d5/6bdcf/laravel-echo-server-init.png 315w,
+/static/27c7dcced968ad2ef33b8d6a37d034d5/f058b/laravel-echo-server-init.png 630w,
+/static/27c7dcced968ad2ef33b8d6a37d034d5/40601/laravel-echo-server-init.png 945w,
+/static/27c7dcced968ad2ef33b8d6a37d034d5/33d1d/laravel-echo-server-init.png 1150w&quot;
+        sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;edit file config &lt;strong&gt;config/database.php&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;php&quot;&gt;&lt;pre class=&quot;language-php&quot;&gt;&lt;code class=&quot;language-php&quot;&gt;\\ config&lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt;database&lt;span class=&quot;token operator&quot;&gt;.&lt;/span&gt;php
+
+&lt;span class=&quot;token operator&quot;&gt;...&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;.&lt;/span&gt;
+
+&lt;span class=&quot;token string single-quoted-string&quot;&gt;&apos;redis&apos;&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;
+
+        &lt;span class=&quot;token string single-quoted-string&quot;&gt;&apos;client&apos;&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;env&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string single-quoted-string&quot;&gt;&apos;REDIS_CLIENT&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token string single-quoted-string&quot;&gt;&apos;phpredis&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+
+        &lt;span class=&quot;token string single-quoted-string&quot;&gt;&apos;options&apos;&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;
+            &lt;span class=&quot;token string single-quoted-string&quot;&gt;&apos;cluster&apos;&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;env&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string single-quoted-string&quot;&gt;&apos;REDIS_CLUSTER&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token string single-quoted-string&quot;&gt;&apos;redis&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+            &lt;span class=&quot;token string single-quoted-string&quot;&gt;&apos;prefix&apos;&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token string single-quoted-string&quot;&gt;&apos;&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+
+        &lt;span class=&quot;token operator&quot;&gt;...&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;.&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Jalankan perintah &lt;code class=&quot;language-text&quot;&gt;php artisan queue:work&lt;/code&gt;, lalu test dengan &lt;code class=&quot;language-text&quot;&gt;laravel-echo-server start&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/b2bd8becd7f08595b980cb4d08b989d2/0fb99/laravel-echo-server-start2.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 57.59493670886076%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAMCAYAAABiDJ37AAAACXBIWXMAAAsTAAALEwEAmpwYAAAB1UlEQVQoz42QWXPaQBCE9WRiC3A4ZAzGEQgdSLva1UoCIyEOc8QuJylyvOT//5FO7WIb7HJVePiqNVPqnpnVVoLia0axigjWnKIwcyz9BxTWHAtvg4W7Vjqz73E/mGFrZdjaU2ysDOv+ROnyNsVmkCOpetBWN2MURoysFmJqCBQtjtk1R9FiWLQjLLsJeKmP8MwEU3pE6a3y8wE01orA6hS8RiDKLoTuItI9hSh7iCvy20F0YZ+ENjYs3DWeqfWQVnvI6iayhomkfJgsf+anBE6NIfKmh0ndRdb0FbnsKQLkVxxJxXsN/W/gb/GEn+IRG2uKb8EKf9InzDopiusYmcGw6KZIq8PTA3fhFn8n37EL13j05vglHvAjXGPHt5g0Kei7k4+JZP/87VNo/HKIqEEg6kQ1xIWNWHfUmVL3po/hHwzRwsshaIMg/OyrBtMdMN0GezHozgFZl53Dhp+sPXLAs2q+OYbfvwNtcQRfRnDJEq4/x9CawPMKuMEcfm+8r51cadBN4JsjUCMEvWJqGams4snAEYLbFKQdIWwQkLYA6QhVKzri1fhCWCegTQpecVWI3J5VXHDdhkaaVJmCm1gZZaiaJt/2rI+o1N+fUzri+NR3/AOAhlgqHWUf/wAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;laravel-echo-server start&quot;
+        title=&quot;laravel-echo-server start&quot;
+        src=&quot;/static/b2bd8becd7f08595b980cb4d08b989d2/f058b/laravel-echo-server-start2.png&quot;
+        srcset=&quot;/static/b2bd8becd7f08595b980cb4d08b989d2/c26ae/laravel-echo-server-start2.png 158w,
+/static/b2bd8becd7f08595b980cb4d08b989d2/6bdcf/laravel-echo-server-start2.png 315w,
+/static/b2bd8becd7f08595b980cb4d08b989d2/f058b/laravel-echo-server-start2.png 630w,
+/static/b2bd8becd7f08595b980cb4d08b989d2/40601/laravel-echo-server-start2.png 945w,
+/static/b2bd8becd7f08595b980cb4d08b989d2/0fb99/laravel-echo-server-start2.png 965w&quot;
+        sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;Sekarang, event berhasil melewati socket.io server.&lt;/p&gt;
+&lt;h3&gt;Step 5 Socket.IO Client&lt;/h3&gt;
+&lt;p&gt;Install package &lt;strong&gt;socket.io-client&lt;/strong&gt; dan &lt;strong&gt;laravel-echo&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token function&quot;&gt;npm&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;install&lt;/span&gt; --save socket.io-client@2.4.0 laravel-echo@1.11.2&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Tambah kode di &lt;strong&gt;resources/js/bootstrap.js&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;js&quot;&gt;&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;// resources/js/bootstrap.js&lt;/span&gt;
+
+&lt;span class=&quot;token operator&quot;&gt;...&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; Echo &lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;laravel-echo&quot;&lt;/span&gt;
+window&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;io &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;require&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;socket.io-client&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+window&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;Echo &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Echo&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    broadcaster&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;socket.io&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    host&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; window&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;location&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;hostname &lt;span class=&quot;token operator&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;:6001&apos;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// host laravel-echo-server&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Jalan perintah &lt;code class=&quot;language-text&quot;&gt;npm install &amp;amp;&amp;amp; npm run dev&lt;/code&gt;, lalu edit file &lt;code class=&quot;language-text&quot;&gt;resources/views/welcome.blade.php&lt;/code&gt;&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;php&quot;&gt;&lt;pre class=&quot;language-php&quot;&gt;&lt;code class=&quot;language-php&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;// resources/views/welcome.blade.php&lt;/span&gt;
+
+&lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;!&lt;/span&gt;&lt;span class=&quot;token constant&quot;&gt;DOCTYPE&lt;/span&gt; html&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt;
+&lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;html lang&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token string double-quoted-string&quot;&gt;&quot;{{ str_replace(&apos;_&apos;, &apos;-&apos;, app()-&gt;getLocale()) }}&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt;
+    &lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;head&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt;
+        &lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;meta charset&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token string double-quoted-string&quot;&gt;&quot;utf-8&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt;
+        &lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;meta name&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token string double-quoted-string&quot;&gt;&quot;viewport&quot;&lt;/span&gt; content&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token string double-quoted-string&quot;&gt;&quot;width=device-width, initial-scale=1&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt;
+        &lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;meta name&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token string double-quoted-string&quot;&gt;&quot;csrf-token&quot;&lt;/span&gt; content&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token string double-quoted-string&quot;&gt;&quot;{{ csrf_token() }}&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt;
+        &lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;title&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt;Laravel&lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt;title&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt;
+    &lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt;head&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt;
+    &lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;body&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt;
+        &lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;h2&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt;Welcome&lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt;h2&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt;
+    &lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt;body&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt;
+    &lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;script src&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token string double-quoted-string&quot;&gt;&quot;{{ asset(&apos;js/app.js&apos;) }}&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt;script&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt;
+    &lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;script&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt;
+        &lt;span class=&quot;token keyword&quot;&gt;Echo&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;channel&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string single-quoted-string&quot;&gt;&apos;test&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;token operator&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;listen&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string double-quoted-string&quot;&gt;&quot;TestEvent&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; e &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+            console&lt;span class=&quot;token operator&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;e&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt;script&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt;
+&lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt;html&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Buka &lt;code class=&quot;language-text&quot;&gt;http://127.0.0.1:8000&lt;/code&gt; dan &lt;code class=&quot;language-text&quot;&gt;http://127.0.0.1:8000/test-event&lt;/code&gt; di browser di tab yang berbeda.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 584px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/6cca0cadf92092b5912708dd0ccfb1ba/e05eb/browser-1.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 82.91139240506328%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAARCAYAAADdRIy+AAAACXBIWXMAAAsTAAALEwEAmpwYAAABvklEQVQ4y61U7a6aQBDl/d+l999t9H/bF2jSWxUUhBUVWPYbVsDTMEptG5Peajc5WWazHObMzCFoW4++72GthbUOZcWxzRhSliNjOfLDkeLviyUWq5CwDCOswgjReoOqllDGQmpDCADgfD4TKRG7BtoYaGOhtIGxjmIhJaRUEEIS6lrQWdO28P6E1ntCoJVC0zTw3uN0OhH5MyuYz2eYzeZ4ff2Il5cP+PT5C6asHwFJnuROeJrwT5nPyA7uZ0OnDxET4TAMD0u8K/l/LiKkkek6dH1PGBvTXeO+H9APw61p1+fuZxN/j4NslyPaxOBCoqg4ojhBtElQcoGS1wjXG7wtljiUFXb7I91NMgYuFd0L1zG2bEfvjw4KWL7HOk5wLCuM5CnbYX8syFZxXuNruMPb5oCcO3IOOUZpGOdoF1JBaU2OGvfgcCyQbFPKLs0YkQmlsFxFqIUC55wsdynDbVZvJbnIneJg7HBVcRRFSR5tvIc1At8yD1ZPc4lfanndh/sxNaW1LapViSosoWsNXtRonIdrWjTO0df/qctGabjKwpYGOleQqUCrWxRlAcYY/Tzea8fg4oW/O+K9g/0D65ArLikOvDwAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;browser 1&quot;
+        title=&quot;browser 1&quot;
+        src=&quot;/static/6cca0cadf92092b5912708dd0ccfb1ba/e05eb/browser-1.png&quot;
+        srcset=&quot;/static/6cca0cadf92092b5912708dd0ccfb1ba/c26ae/browser-1.png 158w,
+/static/6cca0cadf92092b5912708dd0ccfb1ba/6bdcf/browser-1.png 315w,
+/static/6cca0cadf92092b5912708dd0ccfb1ba/e05eb/browser-1.png 584w&quot;
+        sizes=&quot;(max-width: 584px) 100vw, 584px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;Jika berhasil, event akan muncul di console browser. Saya coba sisipkan data pada event&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;php&quot;&gt;&lt;pre class=&quot;language-php&quot;&gt;&lt;code class=&quot;language-php&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;// app/Events/TestEvent.php&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name-definition class-name&quot;&gt;TestEvent&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;implements&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;ShouldBroadcast&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;use&lt;/span&gt; &lt;span class=&quot;token package&quot;&gt;Dispatchable&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; InteractsWithSockets&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; SerializesModels&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+    &lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token variable&quot;&gt;$data&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string single-quoted-string&quot;&gt;&apos;Ini data event&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+    &lt;span class=&quot;token operator&quot;&gt;...&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 580px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/638d5816dd5093e681016325c5f9dab7/b6272/sisipkan-data.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 78.48101265822784%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAQCAYAAAAWGF8bAAAACXBIWXMAAAsTAAALEwEAmpwYAAABrUlEQVQ4y61T23KbMBDV//+JfyD1U/LYvLeJHWOuNhgDBusOAnM6UuokOG6n8XRnjnalFauVOIc0TYPOGPR9D0oZpFJItinizdYhSrbY7Qt4ax8/nxdYLF/wtFhiuVrj6XkBP4zApQLlAowLEGN6nG0cR4wAdNteoIPSGkrpiRdCQuvWNXQGyfMch6oCYwxSSnDOMQwDbjXy+Pgd8293mM/nuL9/wGw2Q5xs3jv+Isi1bmzi5oJa60mRa0W/dOW2ba92c0uxvxa8FaTrOvxPI1wI9P0A26npe1heOv87toSfYniDucjZOQnjxCnDeiYk0iyH5wcI4sSxf5PusFx5Thn1kbl9Kz9Eti9QHmq8eD48Ny+RFxXIOgiR7nIEUYyqbpy3Cbu2CmIEO4of6wxBRlGzFsKSX0gIqZxaXmPpJCuVBgmjGEVZOTLXxyOSzRbNkWK/LxCFEaQQKIsCSil3pbPujTEOl09C7GAlZyVIGceJc3RZBpNl6PMcbZrCpKl746o6oChKSKncoZRS92eH4YTT6RWkYRof2TZ+8JP4T5wcp1/8Mw/t/s/rn2nzC5wz2228qkYzAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;Sisipkan data&quot;
+        title=&quot;Sisipkan data&quot;
+        src=&quot;/static/638d5816dd5093e681016325c5f9dab7/b6272/sisipkan-data.png&quot;
+        srcset=&quot;/static/638d5816dd5093e681016325c5f9dab7/c26ae/sisipkan-data.png 158w,
+/static/638d5816dd5093e681016325c5f9dab7/6bdcf/sisipkan-data.png 315w,
+/static/638d5816dd5093e681016325c5f9dab7/b6272/sisipkan-data.png 580w&quot;
+        sizes=&quot;(max-width: 580px) 100vw, 580px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;h3&gt;Private Channel&lt;/h3&gt;
+&lt;p&gt;Jika ingin menggunakan private channel, ada beberapa file yang akan di config. Client yang ingin menerima event dari private channel diperlukan status authenticated.&lt;/p&gt;
+&lt;p&gt;Uncomment &lt;code class=&quot;language-text&quot;&gt;App\Providers\BroadcastServiceProvider&lt;/code&gt; di &lt;code class=&quot;language-text&quot;&gt;config/app.php&lt;/code&gt;, dan edit route channel di file &lt;code class=&quot;language-text&quot;&gt;routes/channels.php&lt;/code&gt;&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;php&quot;&gt;&lt;pre class=&quot;language-php&quot;&gt;&lt;code class=&quot;language-php&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;// routes/channels.php&lt;/span&gt;
+
+&lt;span class=&quot;token class-name static-context&quot;&gt;Broadcast&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;channel&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string single-quoted-string&quot;&gt;&apos;test&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token variable&quot;&gt;$user&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token constant boolean&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Edit laravel echo script di &lt;code class=&quot;language-text&quot;&gt;resources/views/welcome.blade.php&lt;/code&gt;&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;php&quot;&gt;&lt;pre class=&quot;language-php&quot;&gt;&lt;code class=&quot;language-php&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;// resources/views/welcome.blade.php&lt;/span&gt;
+
+&lt;span class=&quot;token operator&quot;&gt;...&lt;/span&gt;
+&lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;script&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;Echo&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;private&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string single-quoted-string&quot;&gt;&apos;test&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;token operator&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;listen&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string single-quoted-string&quot;&gt;&apos;TestEvent&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; e &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+        console&lt;span class=&quot;token operator&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;e&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt;script&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Edit &lt;code class=&quot;language-text&quot;&gt;app/Events/TestEvent.php&lt;/code&gt;&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;php&quot;&gt;&lt;pre class=&quot;language-php&quot;&gt;&lt;code class=&quot;language-php&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;// app/Events/TestEvent.php&lt;/span&gt;
+
+&lt;span class=&quot;token operator&quot;&gt;...&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name-definition class-name&quot;&gt;TestEvent&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;implements&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;ShouldBroadcast&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token operator&quot;&gt;...&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token function-definition function&quot;&gt;broadcastOn&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;PrivateChannel&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string single-quoted-string&quot;&gt;&apos;test&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Jika buka &lt;code class=&quot;language-text&quot;&gt;/&lt;/code&gt; di browser, maka akan muncul error log laravel-echo-server &lt;code class=&quot;language-text&quot;&gt;Client can not be authenticated, got HTTP status 403&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Edit file &lt;code class=&quot;language-text&quot;&gt;app/Providers/AppServiceProvider.php&lt;/code&gt;&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;php&quot;&gt;&lt;pre class=&quot;language-php&quot;&gt;&lt;code class=&quot;language-php&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;// app/Providers/AppServiceProvider.php&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;use&lt;/span&gt; &lt;span class=&quot;token package&quot;&gt;App&lt;span class=&quot;token punctuation&quot;&gt;\&lt;/span&gt;User&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;use&lt;/span&gt; &lt;span class=&quot;token package&quot;&gt;Illuminate&lt;span class=&quot;token punctuation&quot;&gt;\&lt;/span&gt;Support&lt;span class=&quot;token punctuation&quot;&gt;\&lt;/span&gt;Facades&lt;span class=&quot;token punctuation&quot;&gt;\&lt;/span&gt;Auth&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token operator&quot;&gt;...&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name-definition class-name&quot;&gt;AppServiceProvider&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token function-definition function&quot;&gt;boot&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token variable&quot;&gt;$user&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token class-name static-context&quot;&gt;User&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;factory&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;-&gt;&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;make&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token class-name static-context&quot;&gt;Auth&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;login&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token variable&quot;&gt;$user&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Buka &lt;code class=&quot;language-text&quot;&gt;/test-event&lt;/code&gt; dan check log &lt;code class=&quot;language-text&quot;&gt;Queueu Worker&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;laravel-echo-server&lt;/code&gt;, dan &lt;code class=&quot;language-text&quot;&gt;console browser&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/e3b7690e4f1c05a4234484f89d057c46/20c85/queue-worker-log.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 12.025316455696203%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAACCAYAAABYBvyLAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAgUlEQVQI103HsQ6CMAAAUUYTAZfGUQhFKKVAcQIHrBZMCP//PWeIDg4vuQtmk+ObDFdK3DXHlzW+qpn1zvBShkXXvEvFXFR4ubdmyXs2/WRVD1Y1sVWO+7kjmC495pBgj5IuzLBxgj39+X0Xp19hShsl2FAyipZBNAzCMIqGW1TwAUmPO7l9T/LzAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;queue worker log&quot;
+        title=&quot;queue worker log&quot;
+        src=&quot;/static/e3b7690e4f1c05a4234484f89d057c46/f058b/queue-worker-log.png&quot;
+        srcset=&quot;/static/e3b7690e4f1c05a4234484f89d057c46/c26ae/queue-worker-log.png 158w,
+/static/e3b7690e4f1c05a4234484f89d057c46/6bdcf/queue-worker-log.png 315w,
+/static/e3b7690e4f1c05a4234484f89d057c46/f058b/queue-worker-log.png 630w,
+/static/e3b7690e4f1c05a4234484f89d057c46/40601/queue-worker-log.png 945w,
+/static/e3b7690e4f1c05a4234484f89d057c46/20c85/queue-worker-log.png 999w&quot;
+        sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt; &lt;em&gt;Queue worker log&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/8a628f505f2c85a41ed809cc466c022b/b12f7/echo-server-log.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 62.65822784810127%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAANCAYAAACpUE5eAAAACXBIWXMAAAsTAAALEwEAmpwYAAACDUlEQVQ4y4WSW3PaMBCFeSqYXMBgY5MmwdgErKvlewJOZpJpm06nM+1L//9POR1JJKGhnT58c7Sr1eqs5d4T43i4Iehigu6qxfbyFvfRDt1ihyas0IYVdoHCLsiMboMMW1/izhNQwxUyJzH6Qm87b1BPFOoRN0X1iKALFO48DtmPIPtLiHfIfgw5iF+bHTbtqckSxXiJ4nSB/OQazThCfhJBfFj+cfO/OHL4ddXiaZHj8brA57hBFzB0ocDDRYHidH104H/0flXf8UN8wjfyiJ/ZFzyvH3B/UaI4W9ui14aJxdlzGA8TZC8N60ChDhWqMUE9YWh9gcqlEE4C6awgh6s3PcR5I3PsxXqaXnF2g/x8jXKwRNOPUPYjo60To3ZiNFqHCSq9Htqc3muHOk6MlocOiylD4RLkE4oylNBxORMofG7yRqcUap/L91pNCMopRTllUB4Dn3LbkH4sQOcK3BfYJHdIoxbrTWfW9LJEumhAriuwIAO5LKHr9VqebyBP1wY1iC165MZjqF2CyiW4DThqj6ENBVqfoXFTq1OKymNoAoHao7jVzJjZawOO0k0hXGIdaqtCP4JLzc3aqVYaKnCPv+a4J6zOJJgvILTDs411OkqNZmbkq8qMQa9KpHELNleWi9w20A2DDGLCbOwLyDGxv8vgHXpkOkohZnLvglvruri/fPs2R9hX/Ru/AckVcBU/UHpGAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;echo server log&quot;
+        title=&quot;echo server log&quot;
+        src=&quot;/static/8a628f505f2c85a41ed809cc466c022b/f058b/echo-server-log.png&quot;
+        srcset=&quot;/static/8a628f505f2c85a41ed809cc466c022b/c26ae/echo-server-log.png 158w,
+/static/8a628f505f2c85a41ed809cc466c022b/6bdcf/echo-server-log.png 315w,
+/static/8a628f505f2c85a41ed809cc466c022b/f058b/echo-server-log.png 630w,
+/static/8a628f505f2c85a41ed809cc466c022b/40601/echo-server-log.png 945w,
+/static/8a628f505f2c85a41ed809cc466c022b/b12f7/echo-server-log.png 1020w&quot;
+        sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt; &lt;em&gt;Laravel echo server log&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 575px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/882a4826087bd48e05e37e1722f238c8/59415/browser-console-log.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 76.58227848101265%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAPCAYAAADkmO9VAAAACXBIWXMAAAsTAAALEwEAmpwYAAABoklEQVQ4y6VTyW7bMBDl//9LmktyM5Cc29wKdAFiWattLRQXLbZEkS/gyHLVg1HEJfAwMxjM8jgzbBwNpmkiDMNAqIVALSR4LSCkglAKeVHgmP/B4ZgTvP80DOhPZ/TnM5hP4JP913PuqrK3b1/x8OURm80Gry8veHp+psr+WWvhnPs3KOesM9+d1hpKKQghwDnHMI6Xwu7TYLdZuLvYs1uV7k3K7qH1ScqXDlddrrvGyndlsZ7yvIMWxsy7aO0cbJ0je01/sUm3lrZg7fMxLMn22B+OSLM9VNPC29tdiDjNoNseuzjF9x+/sA1j1FIjCCMEYYyqFjjkBX6/B2TXUlEs84Fe2UUxSl4jSlLkJUeSZoj3Bd6TCj+DA8KjgtAdpNKEpu2gm5Yuheyug9INmA/0pxTGMSpeYxvsIHWDMEkQpSlU2yIvSjpJT3M509EYgpkmmEU3Zp6ylBJlWUE1DZxSGPIcY5bBlCXOUQRTVTj1JxRFCc5rtF0HISRJey1iCawf7OWDJ3LSuXlpDKwfwiL9oBb/X5NfbYUfyr0XcWuxPwAks5DnWCEdSAAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;browser console log&quot;
+        title=&quot;browser console log&quot;
+        src=&quot;/static/882a4826087bd48e05e37e1722f238c8/59415/browser-console-log.png&quot;
+        srcset=&quot;/static/882a4826087bd48e05e37e1722f238c8/c26ae/browser-console-log.png 158w,
+/static/882a4826087bd48e05e37e1722f238c8/6bdcf/browser-console-log.png 315w,
+/static/882a4826087bd48e05e37e1722f238c8/59415/browser-console-log.png 575w&quot;
+        sizes=&quot;(max-width: 575px) 100vw, 575px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;Jika berhasil, event akan muncul di console browser.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Akses Repository Github tanpa Login]]></title><description><![CDATA[Pengantar Login yang berulang ketika kita push / pull repository ke github cukup sangat mengganggu. Ada banyak jalan pintas untuk membuatnya…]]></description><link>https://yogigr.github.io/akses-repository-github-tanpa-login/</link><guid isPermaLink="false">https://yogigr.github.io/akses-repository-github-tanpa-login/</guid><pubDate>Fri, 01 Oct 2021 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;Pengantar&lt;/h3&gt;
 &lt;p&gt;Login yang berulang ketika kita push / pull repository ke github cukup sangat mengganggu. Ada banyak jalan pintas untuk membuatnya &lt;strong&gt;Passwordless&lt;/strong&gt; (tanpa login), salah satunya dengan Token.&lt;/p&gt;
 &lt;h2&gt;Membuat token&lt;/h2&gt;
 &lt;ol&gt;
